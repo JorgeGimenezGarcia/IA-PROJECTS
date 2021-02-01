@@ -1,0 +1,37 @@
+Comandos para poder hacer funcionar IA.
+source env/bin/activate
+python3 app.py
+
+Esta práctica esta hecho un modelo de regresión logística que nos ayudará a predecir si la crítica que introduce un usuario es positiva o negativa.
+Este proyecto contiene un fichero llamado aclImdb, que este fichero contiene dos subcarpetas, test y train. Que nos sirven para poder tener un dataset de entrenamiento y de testeo para nuestro modelo. Además de información fundamental para que el programador, sepa que contiene dicho archivo en su README.
+
+La carpeta pkl_objects encontraremos dos ficheros pkl. Gracias a la librería pickle de python podemos guardar de una manera binaria los datos serializados que han sido entrenados en el modelo de regresión logística.
+
+La carpeta de env, es la carpeta de un entorno virtual que he creado, ya que he creado una pequeña aplicación Flask para poder interactuar con nuestro modelo y podamos ver los resultados de las predicciones que realiza el modelo. Las carpetas static y templates son carpetas que usaremos para la aplicación de Flask. En templates, encontraremos los ficheros html que nos servirán para poder movernos por nuestra aplicación flask.
+_formerhelpers.html, ayudará al usuario en caso de que haya introducido mal los datos para que tenga información y vuelva a introducir bien los datos de nuevo.
+resultados.html, nos dará el resultado del modelo de predicción.
+reviewformulario.html, nos llevará a la página principal en la que podremos introducir nuestra review o critica.
+
+El fichero app.py será nuestro main, para poder ejecutar nuestra aplicación flask y también nuestra conexión a la Base Datos SQL creada para poder guardar las predicciones y los resultados alcanzados. Para que así el modelo aprenda.
+
+El fichero update.py se encargará de actualizar permanentemente el modelo, ya que modificamos a los objetos pkl que hemos creado anteriormente y además para poder modificar dichos datos accedemos a la Base de Datos creada anteriormente para poder actualizar los objetos.
+
+El fichero vectorizer.py se encargará de poder limpiar el texto de cualquier impureza que tenga el comentario del usuario, ya sea un emoticono, comillas, mayúsculas, emojis... Para poder dejar todos las críticas del usuario de un formato único para que el modelo no tenga mucho problemas para poder interpretarlo.
+
+
+Librerías usadas:
+from sklearn.feature_extraction.text import HashingVectorizer
+import re
+import os
+import pickle
+import sqlite3
+import numpy as np
+import os
+from vectorizer import vect
+from flask import Flask, render_template,request
+from wtforms import Form, TextAreaField,validators
+
+Casi todo lo mencionado anteriormente esta bien explicado dentro del proyecto, pero he creado este ReadMe para que sea mucho más cómodo para leer.
+
+
+
