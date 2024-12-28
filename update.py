@@ -2,7 +2,7 @@ import pickle
 import sqlite3
 import numpy as np
 import os
-#Importamos HashinVectorizer desde el directorio
+# Importamos HashinVectorizer desde el directorio
 from vectorizer import vect
 
 def update_model(db_path,model,batch_size=10000):
